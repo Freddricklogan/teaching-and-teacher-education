@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Teaching, Teacher Education &amp; Curriculum — A Graduate Resource</title>
 <meta name="description" content="An executive, graduate-level interactive resource on the craft of teaching, how teachers are prepared and developed, and how curriculum is designed across the disciplines. Authored by Freddrick Logan.">
 <meta name="author" content="Freddrick Logan">
@@ -12,210 +13,18 @@
 <meta property="og:description" content="Learning theory, high-leverage practices, culturally responsive teaching, teacher education, math &amp; science education, and curriculum design — an interactive graduate resource.">
 <meta property="og:url" content="https://freddricklogan.github.io/teaching-and-teacher-education/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314213d'/%3E%3Cpath d='M16 9c-2.4-1.4-5-1.6-7.5-1.1v13c2.5-.5 5.1-.3 7.5 1.1 2.4-1.4 5-1.6 7.5-1.1v-13C21 7.4 18.4 7.6 16 9z' fill='none' stroke='%2394773d' stroke-width='2' stroke-linejoin='round'/%3E%3Cline x1='16' y1='9' x2='16' y2='22' stroke='%2394773d' stroke-width='2'/%3E%3C/svg%3E">
-<style>
-  /* ==== EXECUTIVE DESIGN SYSTEM — light, editorial, WCAG-aware ==== */
-  :root{
-    --paper:#ffffff;--paper2:#f5f7f9;--paper3:#eef1f5;
-    --navy:#14213d;--navy2:#1c2f4f;
-    --panel:#ffffff;--panel2:#ffffff;--panel3:#f5f7f9;
-    --line:#e3e7ec;--line2:#d1d8e2;
-    --accent:#1e3a5f;--accent2:#2a5486;--accent3:#243f6a;
-    --ink:#14213d;--body:#33404f;--muted:#4c596b;--dim:#5f6c7e;
-    --gold:#94773d;--gold-soft:#f3eddf;
-    --good:#15803d;--warn:#b45309;--bad:#b3261e;
-    --serif:Georgia,'Iowan Old Style','Palatino Linotype','Times New Roman',serif;
-    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,system-ui,sans-serif;
-    --r:12px;--maxw:1060px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--body);line-height:1.7;background:var(--paper);
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{color:var(--accent2);text-decoration:underline}
-  a:focus-visible,button:focus-visible,.tab:focus-visible,.opt:focus-visible,.ck:focus-visible,input:focus-visible{
-    outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:700;letter-spacing:-.01em}
-  h2{font-size:1.75rem;line-height:1.2;margin-bottom:8px}
-  h3{font-size:1.18rem;color:var(--navy);margin-bottom:8px}
-  p{color:var(--body)}
-  .lead{color:var(--muted)}
-  em{color:inherit}
-  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;color:var(--gold)}
 
-  /* NAV */
-  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
-    background:rgba(255,255,255,.92);border-bottom:1px solid var(--line)}
-  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--ink);white-space:nowrap}
-  .logo svg{width:30px;height:30px}
-  .navlinks{display:flex;gap:22px;font-size:.85rem;overflow-x:auto}
-  .navlinks a{color:var(--muted);font-weight:600;white-space:nowrap}
-  .navlinks a:hover{color:var(--accent);text-decoration:none}
-  @media(max-width:860px){.navlinks{display:none}}
-
-  /* HERO */
-  header.hero{padding:80px 0 56px;position:relative}
-  .hero .eyebrow{margin-bottom:18px}
-  .hero h1{font-family:var(--serif);font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;letter-spacing:-.02em;
-    font-weight:700;color:var(--ink);margin-bottom:22px}
-  .hero p{font-size:1.14rem;color:var(--muted);max-width:660px}
-  .hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{padding:12px 22px;border-radius:8px;font-weight:600;font-size:.92rem;cursor:pointer;
-    border:1px solid var(--line2);background:#fff;color:var(--ink);transition:.15s;font-family:var(--sans)}
-  .btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
-  .btn.primary:hover{background:var(--navy2)}
-  .btn:hover{border-color:var(--accent);color:var(--accent)}
-  .btn.primary:hover{color:#fff}
-  .statrow{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
-  .statrow .s .n{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--navy)}
-  .statrow .s .l{font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.09em;margin-top:2px}
-
-  /* EXECUTIVE SUMMARY / TL;DR */
-  .exec-summary{background:var(--paper2);border:1px solid var(--line2);border-left:4px solid var(--navy);
-    border-radius:12px;padding:26px 28px;margin:6px 0 0}
-  .exec-summary .tldr{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;
-    font-weight:700;color:var(--gold);margin-bottom:8px}
-  .exec-summary h2{font-size:1.2rem;margin-bottom:12px}
-  .exec-summary ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
-  .exec-summary li{padding-left:22px;position:relative;color:var(--muted);font-size:.96rem}
-  .exec-summary li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;
-    background:var(--gold)}
-  .exec-summary li b{color:var(--ink);font-weight:700}
-
-  section{padding:60px 0;border-top:1px solid var(--line)}
-  .sec-head{margin-bottom:34px;max-width:720px}
-  .sec-head .eyebrow{display:block;margin-bottom:12px}
-
-  .grid{display:grid;gap:20px}
-  .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-  @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;
-    box-shadow:0 1px 2px rgba(20,33,61,.04)}
-  .card.hoverable{transition:.18s}.card.hoverable:hover{border-color:var(--line2);transform:translateY(-2px);
-    box-shadow:0 14px 34px -20px rgba(20,33,61,.35)}
-  .card .tag{display:inline-block;font-family:var(--sans);font-size:.68rem;font-weight:700;text-transform:uppercase;
-    letter-spacing:.09em;color:var(--gold);background:var(--gold-soft);padding:3px 10px;border-radius:4px;margin-bottom:12px}
-  .card ul{margin:10px 0 0 0;padding-left:18px;color:var(--muted);font-size:.92rem}
-  .card ul li{margin-bottom:6px}
-  .kv{font-size:.92rem;color:var(--muted);margin-top:4px}.kv b{color:var(--ink);font-weight:700}
-
-  /* TABS */
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-  .tab{padding:10px 16px;border-radius:8px;border:1px solid var(--line2);background:#fff;color:var(--muted);
-    font-weight:600;font-size:.88rem;cursor:pointer;transition:.15s;font-family:var(--sans)}
-  .tab:hover{color:var(--accent);border-color:var(--accent)}
-  .tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
-  .panel{display:none;animation:fade .3s ease}
-  .panel.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  .panel-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:22px}
-  @media(max-width:860px){.panel-grid{grid-template-columns:1fr}}
-  .facts{list-style:none;padding:0}
-  .facts li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem}
-  .facts li span:first-child{color:var(--dim);min-width:130px;font-weight:600}
-  .facts li span:last-child{color:var(--ink)}
-
-  /* SELECTOR widget */
-  .selector{background:var(--paper2);border:1px solid var(--line2);border-radius:14px;padding:28px}
-  .q{margin-bottom:20px}
-  .q p{font-weight:600;color:var(--ink);margin-bottom:10px}
-  .opts{display:flex;gap:8px;flex-wrap:wrap}
-  .opt{padding:9px 14px;border-radius:8px;border:1px solid var(--line2);background:#fff;
-    color:var(--muted);cursor:pointer;font-size:.88rem;transition:.15s;font-family:var(--sans)}
-  .opt:hover{border-color:var(--accent);color:var(--accent)}
-  .opt.sel{background:var(--navy);border-color:var(--navy);color:#fff}
-  .result{margin-top:20px;padding:20px;border-radius:10px;background:#fff;border:1px solid var(--line2);border-left:4px solid var(--gold);display:none}
-  .result.show{display:block;animation:fade .3s}
-  .result .big{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-
-  /* STEPPER */
-  .steps{counter-reset:s;display:grid;gap:14px}
-  .step{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);
-    border-radius:12px;padding:18px 20px;box-shadow:0 1px 2px rgba(20,33,61,.04)}
-  .step .num{counter-increment:s;flex:0 0 40px;height:40px;width:40px;border-radius:9px;display:grid;place-items:center;
-    background:var(--navy);color:#fff;font-family:var(--serif);font-weight:700}
-  .step .num::before{content:counter(s,decimal-leading-zero)}
-  .step h4{font-size:1.02rem;margin-bottom:3px}
-  .step p{font-size:.92rem;color:var(--muted)}
-
-  /* TABLE */
-  table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:8px}
-  th{text-align:left;font-family:var(--sans);color:var(--navy);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
-    padding:12px 13px;border-bottom:2px solid var(--line2)}
-  td{padding:12px 13px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
-  td b{color:var(--ink);font-weight:700}
-  tbody tr:hover{background:var(--paper2)}
-  .tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:#fff}
-
-  /* LADDER / coder */
-  .coder{background:var(--paper2);border:1px solid var(--line2);border-radius:14px;padding:26px}
-  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:22px 0 8px;position:relative}
-  @media(max-width:860px){.ladder{grid-template-columns:1fr;gap:10px}}
-  .rung{text-align:center;padding:15px 11px;border:1px solid var(--line);background:#fff;position:relative}
-  .rung:first-child{border-radius:10px 0 0 10px}.rung:last-child{border-radius:0 10px 10px 0}
-  @media(max-width:860px){.rung{border-radius:10px!important}}
-  .rung.on{background:var(--paper3);border-color:var(--navy)}
-  .rung .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:6px;font-weight:600}
-  .rung .val{font-size:.9rem;color:var(--ink);font-weight:600;min-height:2.6em}
-  .quote{font-family:var(--serif);font-style:italic;font-size:1.08rem;color:var(--ink);border-left:3px solid var(--gold);
-    padding:6px 18px;margin-bottom:10px;background:transparent}
-
-  /* CHECKLIST scorer */
-  .checklist{display:grid;gap:10px}
-  .ck{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
-    cursor:pointer;transition:.15s;background:#fff}
-  .ck:hover{border-color:var(--accent)}
-  .ck.on{background:#f0f6f2;border-color:var(--good)}
-  .ck .box{flex:0 0 20px;height:20px;width:20px;border-radius:5px;border:2px solid var(--dim);display:grid;place-items:center;margin-top:2px;background:#fff}
-  .ck.on .box{background:var(--good);border-color:var(--good)}
-  .ck.on .box::after{content:'✓';color:#fff;font-weight:900;font-size:.75rem}
-  .ck .t b{display:block;color:var(--ink);font-size:.94rem;font-weight:700}
-  .ck .t span{font-size:.86rem;color:var(--muted)}
-  .score{margin-top:22px;padding:22px;border-radius:12px;text-align:center;background:var(--paper2);border:1px solid var(--line2)}
-  .score .meter{height:12px;border-radius:8px;background:var(--paper3);overflow:hidden;margin:14px 0}
-  .score .fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--navy),var(--good));transition:width .4s}
-  .score .verdict{font-family:var(--serif);font-weight:700;font-size:1.15rem}
-
-  .callout{border-left:3px solid var(--gold);background:var(--paper2);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0;font-size:.96rem;color:var(--muted)}
-  .callout b{color:var(--ink)}
-
-  .scholars{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .chip{font-size:.82rem;padding:6px 12px;border-radius:6px;border:1px solid var(--line2);color:var(--muted);background:#fff}
-
-  footer{border-top:1px solid var(--line);padding:44px 0 56px;margin-top:20px;color:var(--dim);font-size:.9rem;background:var(--paper2)}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:flex-start}
-  footer a{color:var(--accent)}
-  .copyright{width:100%;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
-  .backhub{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;color:var(--muted);margin-bottom:10px}
-  /* ==== Executive memorandum + collapsible sections ==== */
-  .memo-head{font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--line2);padding-bottom:10px;margin-bottom:12px}
-  .memo-meta{display:grid;gap:5px;margin-bottom:16px}
-  .memo-meta>div{display:flex;gap:10px;font-size:.92rem;color:var(--muted)}
-  .memo-meta span{flex:0 0 auto;min-width:48px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;font-size:.7rem;color:var(--gold);padding-top:3px}
-  .expand-bar{max-width:var(--maxw);margin:0 auto;padding:22px 24px 0;display:flex;justify-content:flex-end}
-  .expand-bar button{font-family:var(--sans);font-size:.8rem;font-weight:600;color:var(--accent);background:#fff;border:1px solid var(--line2);border-radius:7px;padding:8px 14px;cursor:pointer}
-  .expand-bar button:hover{border-color:var(--accent)}
-  .expand-bar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .sec-head.sect-toggle{cursor:pointer;position:relative;padding-right:40px}
-  .sec-head.sect-toggle::after{content:'';position:absolute;right:8px;top:10px;width:12px;height:12px;border-right:2.5px solid var(--navy);border-bottom:2.5px solid var(--navy);transform:rotate(45deg);transition:transform .2s}
-  section.collapsed .sec-head.sect-toggle::after{transform:rotate(-45deg)}
-  .sec-head.sect-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
-  section.collapsed .sect-body{display:none}
-  .sect-body{animation:fade .3s ease}
-  /* Centered footer */
-  footer .wrap{flex-direction:column;align-items:center;text-align:center;gap:6px;justify-content:center}
-  .foot-name{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.08rem}
-  .foot-title{color:var(--muted);font-size:.92rem;max-width:640px}
-  .foot-links{margin-top:6px;font-size:.9rem}
-  .foot-links a{color:var(--accent);white-space:nowrap}
-  footer .copyright{width:100%;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem;text-align:center}
-</style>
+<link rel="canonical" href="https://freddricklogan.github.io/teaching-and-teacher-education/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="src/exec-shell.css">
+<link rel="stylesheet" href="src/lr-kit.css">
+<link rel="stylesheet" href="src/page.css">
 </head>
 <body>
 
-<nav class="top"><div class="wrap">
+<nav class="top" aria-label="Sections"><div class="wrap">
   <div class="logo">
     <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#14213d"/><path d="M16 9c-2.4-1.4-5-1.6-7.5-1.1v13c2.5-.5 5.1-.3 7.5 1.1 2.4-1.4 5-1.6 7.5-1.1v-13C21 7.4 18.4 7.6 16 9z" fill="none" stroke="#94773d" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="9" x2="16" y2="22" stroke="#94773d" stroke-width="2"/></svg>
     Teaching &amp; Curriculum
@@ -235,8 +44,9 @@
   </div>
 </div></nav>
 
+<main>
 <header class="hero"><div class="wrap">
-  <a class="backhub" href="../resources/">← Educational Leadership &amp; Research Resources</a>
+  <a class="backhub" href="https://freddricklogan.github.io/resources/">← Educational Leadership &amp; Research Resources</a>
   <span class="eyebrow">Teaching · Teacher Education · Curriculum</span>
   <h1>The craft of teaching,<br>and the design of what is taught.</h1>
   <p class="lead">An interactive graduate-level resource on how learning works, what effective teaching looks like in practice, how teachers are prepared and developed, and how curriculum is designed across mathematics, science, and the disciplines. Built for teacher educators, instructional leaders, and graduate students.</p>
@@ -278,22 +88,22 @@
   <div class="grid g3">
     <div class="card hoverable"><span class="tag">Behaviorism</span><h3>Learning as behavior change</h3>
       <p class="kv">Learning is a change in observable behavior shaped by stimuli, reinforcement, and practice (Skinner, Thorndike, Pavlov).</p>
-      <p class="kv" style="margin-top:10px"><b>In the classroom:</b> clear objectives, modeling, guided practice, immediate feedback, reinforcement, mastery of prerequisite skills, spaced retrieval.</p></div>
+      <p class="kv lr-s1"><b>In the classroom:</b> clear objectives, modeling, guided practice, immediate feedback, reinforcement, mastery of prerequisite skills, spaced retrieval.</p></div>
     <div class="card hoverable"><span class="tag">Cognitivism</span><h3>Learning as information processing</h3>
       <p class="kv">The mind encodes, organizes, and retrieves information; learning depends on attention, memory, and schema (Piaget's stages, Miller, Sweller's cognitive load).</p>
-      <p class="kv" style="margin-top:10px"><b>In the classroom:</b> manage cognitive load, activate prior knowledge, use worked examples, chunk information, teach metacognitive strategies.</p></div>
+      <p class="kv lr-s1"><b>In the classroom:</b> manage cognitive load, activate prior knowledge, use worked examples, chunk information, teach metacognitive strategies.</p></div>
     <div class="card hoverable"><span class="tag">Constructivism</span><h3>Learners build understanding</h3>
       <p class="kv">Knowledge is actively constructed as learners reconcile new experience with existing schema (Piaget, Bruner, Dewey).</p>
-      <p class="kv" style="margin-top:10px"><b>In the classroom:</b> inquiry, problem-based tasks, discovery within structure, hands-on exploration, surfacing and revising misconceptions.</p></div>
+      <p class="kv lr-s1"><b>In the classroom:</b> inquiry, problem-based tasks, discovery within structure, hands-on exploration, surfacing and revising misconceptions.</p></div>
     <div class="card hoverable"><span class="tag">Social constructivism</span><h3>Learning is socially mediated</h3>
       <p class="kv">Cognition develops first between people, then within. Vygotsky's <b>Zone of Proximal Development</b> is the gap between what a learner can do alone and with support; <b>scaffolding</b> bridges it.</p>
-      <p class="kv" style="margin-top:10px"><b>In the classroom:</b> scaffolding, collaborative discourse, guided participation, gradual release of responsibility, more-knowledgeable-other support.</p></div>
+      <p class="kv lr-s1"><b>In the classroom:</b> scaffolding, collaborative discourse, guided participation, gradual release of responsibility, more-knowledgeable-other support.</p></div>
     <div class="card hoverable"><span class="tag">Connectivism</span><h3>Learning across networks</h3>
       <p class="kv">A digital-age view (Siemens, Downes): knowing is distributed across networks of people and tools; learning is the capacity to navigate and cultivate connections.</p>
-      <p class="kv" style="margin-top:10px"><b>In the classroom:</b> networked and connected learning, curation, information literacy, learning to find and evaluate sources, community participation.</p></div>
+      <p class="kv lr-s1"><b>In the classroom:</b> networked and connected learning, curation, information literacy, learning to find and evaluate sources, community participation.</p></div>
     <div class="card hoverable"><span class="tag">Synthesis</span><h3>No single theory is enough</h3>
       <p class="kv">Expert teaching braids these together: behaviorist practice to build fluency, cognitivist load management, constructivist sense-making, social scaffolding for the harder reaches.</p>
-      <p class="kv" style="margin-top:10px"><b>In the classroom:</b> match the theory to the goal — automaticity, conceptual depth, transfer, or participation — rather than adopting one dogmatically.</p></div>
+      <p class="kv lr-s1"><b>In the classroom:</b> match the theory to the goal — automaticity, conceptual depth, transfer, or participation — rather than adopting one dogmatically.</p></div>
   </div>
 </div></section>
 
@@ -301,13 +111,13 @@
 <section id="effective"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">The craft</span><h2>Effective teaching &amp; high-leverage practices</h2>
     <p class="lead">Beyond enthusiasm, effective teaching is a body of learnable, high-leverage practices — the moves that matter most for student learning and that novices can begin to master with feedback and rehearsal.</p></div>
-  <div class="grid g2" style="margin-bottom:22px">
+  <div class="grid g2 lr-s2">
     <div class="card"><h3>Pedagogical content knowledge (Shulman)</h3>
       <p class="kv">Shulman's <b>PCK</b> is the special amalgam of content and pedagogy that belongs uniquely to teachers — knowing not just the subject, but how to represent it, the analogies and examples that make it comprehensible, and the misconceptions students predictably bring.</p>
-      <p class="kv" style="margin-top:10px">It sits alongside content knowledge and general pedagogical knowledge, and it is what distinguishes a subject expert from a teacher of that subject.</p></div>
+      <p class="kv lr-s1">It sits alongside content knowledge and general pedagogical knowledge, and it is what distinguishes a subject expert from a teacher of that subject.</p></div>
     <div class="card"><h3>Explicit instruction &amp; inquiry — both, not either</h3>
       <p class="kv"><b>Explicit instruction</b> (Rosenshine's principles of instruction) — small steps, modeling, guided practice, high success rates, systematic review — is powerful for building new and foundational skills.</p>
-      <p class="kv" style="margin-top:10px"><b>Inquiry</b> develops reasoning and transfer once learners have enough foundational knowledge to reason with. The expert question is not which is right, but which fits this content and this moment.</p></div>
+      <p class="kv lr-s1"><b>Inquiry</b> develops reasoning and transfer once learners have enough foundational knowledge to reason with. The expert question is not which is right, but which fits this content and this moment.</p></div>
   </div>
   <div class="grid g4">
     <div class="card hoverable"><span class="tag">Formative assessment</span><h3>Assessment for learning</h3>
@@ -326,17 +136,17 @@
   <div class="sec-head"><span class="eyebrow">Interactive · signature</span><h2>High-leverage practice explorer</h2>
     <p class="lead">High-leverage practices (TeachingWorks; Ball &amp; Forzani) are the fundamental, frequently-used moves at the heart of skilled teaching. Select one to see what it is, why it matters, and what it looks like in a classroom.</p></div>
   <div class="tabs" id="hlptabs">
-    <button class="tab active" data-p="eliciting">Eliciting student thinking</button>
-    <button class="tab" data-p="explaining">Explaining &amp; modeling</button>
-    <button class="tab" data-p="discussion">Leading discussions</button>
-    <button class="tab" data-p="checking">Checking understanding</button>
-    <button class="tab" data-p="crt">Culturally responsive teaching</button>
+    <button type="button" class="tab active" data-p="eliciting">Eliciting student thinking</button>
+    <button type="button" class="tab" data-p="explaining">Explaining &amp; modeling</button>
+    <button type="button" class="tab" data-p="discussion">Leading discussions</button>
+    <button type="button" class="tab" data-p="checking">Checking understanding</button>
+    <button type="button" class="tab" data-p="crt">Culturally responsive teaching</button>
   </div>
 
   <div class="panel active" id="eliciting"><div class="panel-grid">
     <div class="card"><h3>Eliciting &amp; interpreting student thinking</h3>
       <p>Deliberately drawing out what students actually understand — their reasoning, strategies, and partial ideas — and interpreting it to inform the next instructional move. The teacher treats student thinking as data, not just as right-or-wrong.</p>
-      <p class="kv" style="margin-top:12px"><b>Why it matters:</b> teaching that ignores current thinking teaches past students. Eliciting makes the invisible visible so instruction can meet learners where they are.</p>
+      <p class="kv lr-s3"><b>Why it matters:</b> teaching that ignores current thinking teaches past students. Eliciting makes the invisible visible so instruction can meet learners where they are.</p>
       <div class="scholars"><span class="chip">TeachingWorks HLP 1</span><span class="chip">Formative assessment</span></div></div>
     <ul class="facts">
       <li><span>Move</span><span>Ask students to explain their reasoning, not just their answer</span></li>
@@ -349,7 +159,7 @@
   <div class="panel" id="explaining"><div class="panel-grid">
     <div class="card"><h3>Explaining &amp; modeling content</h3>
       <p>Making a concept, practice, or strategy visible and comprehensible — through clear explanation, worked examples, demonstrations, and thinking aloud so students can see expert reasoning in action.</p>
-      <p class="kv" style="margin-top:12px"><b>Why it matters:</b> clarity is not optional. Well-designed explanations and models manage cognitive load and give every learner access to the same expert representation.</p>
+      <p class="kv lr-s3"><b>Why it matters:</b> clarity is not optional. Well-designed explanations and models manage cognitive load and give every learner access to the same expert representation.</p>
       <div class="scholars"><span class="chip">TeachingWorks HLP 2</span><span class="chip">Worked examples</span><span class="chip">Rosenshine</span></div></div>
     <ul class="facts">
       <li><span>Move</span><span>Model the thinking, not just the steps — narrate the decisions</span></li>
@@ -362,7 +172,7 @@
   <div class="panel" id="discussion"><div class="panel-grid">
     <div class="card"><h3>Leading a group discussion</h3>
       <p>Orchestrating a discussion in which students talk to build collective understanding — advancing each other's reasoning toward a shared goal, with the teacher steering rather than lecturing.</p>
-      <p class="kv" style="margin-top:12px"><b>Why it matters:</b> discussion externalizes reasoning, exposes it to critique, and lets students learn from one another's thinking — the social-constructivist engine.</p>
+      <p class="kv lr-s3"><b>Why it matters:</b> discussion externalizes reasoning, exposes it to critique, and lets students learn from one another's thinking — the social-constructivist engine.</p>
       <div class="scholars"><span class="chip">TeachingWorks HLP 3</span><span class="chip">Accountable talk</span><span class="chip">5 Practices (Smith &amp; Stein)</span></div></div>
     <ul class="facts">
       <li><span>Move</span><span>Revoice, press for reasoning, and connect students' ideas to each other</span></li>
@@ -375,7 +185,7 @@
   <div class="panel" id="checking"><div class="panel-grid">
     <div class="card"><h3>Checking understanding during &amp; at the close</h3>
       <p>Systematically gathering evidence of whether students are learning — during instruction and at its close — so the teacher can reteach, extend, or move on based on data rather than assumption.</p>
-      <p class="kv" style="margin-top:12px"><b>Why it matters:</b> "Any questions?" checks confidence, not understanding. Real checks sample every student and surface the gap before it hardens.</p>
+      <p class="kv lr-s3"><b>Why it matters:</b> "Any questions?" checks confidence, not understanding. Real checks sample every student and surface the gap before it hardens.</p>
       <div class="scholars"><span class="chip">TeachingWorks HLP</span><span class="chip">Formative assessment</span><span class="chip">Wiliam</span></div></div>
     <ul class="facts">
       <li><span>Move</span><span>Sample the whole class, not the volunteers</span></li>
@@ -388,7 +198,7 @@
   <div class="panel" id="crt"><div class="panel-grid">
     <div class="card"><h3>Culturally responsive teaching</h3>
       <p>Teaching that uses students' cultural knowledge, prior experiences, and frames of reference as assets and bridges — making learning relevant, affirming identity, and holding high expectations for every learner (Gay; Ladson-Billings; Hammond).</p>
-      <p class="kv" style="margin-top:12px"><b>Why it matters:</b> engagement and rigor rise when students see themselves in the curriculum and their community is treated as a resource, not a deficit.</p>
+      <p class="kv lr-s3"><b>Why it matters:</b> engagement and rigor rise when students see themselves in the curriculum and their community is treated as a resource, not a deficit.</p>
       <div class="scholars"><span class="chip">Gay</span><span class="chip">Ladson-Billings</span><span class="chip">Hammond — Ready for Rigor</span></div></div>
     <ul class="facts">
       <li><span>Move</span><span>Connect content to students' lives, languages, and communities</span></li>
@@ -399,7 +209,7 @@
   </div></div>
 </div></section>
 
-<!-- 4. CULTURALLY RESPONSIVE & INCLUSIVE -->
+<!-- 4. CULTURALLY RESPONSIVE &amp; INCLUSIVE -->
 <section id="culturally"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Equity &amp; access</span><h2>Culturally responsive &amp; inclusive teaching</h2>
     <p class="lead">Inclusive teaching insists that rigor and relevance are not in tension. It draws on students' cultural and community resources, and it designs from the start for the full range of learners in the room.</p></div>
@@ -410,7 +220,7 @@
         <li><b>Cultural competence</b> — students affirmed in their own culture while accessing others</li>
         <li><b>Sociopolitical consciousness</b> — using knowledge to critique and act on inequity</li>
       </ul>
-      <p class="kv" style="margin-top:10px">Later extended toward <em>culturally sustaining pedagogy</em> (Paris &amp; Alim), which aims to sustain, not just bridge, students' cultural ways of being.</p></div>
+      <p class="kv lr-s1">Later extended toward <em>culturally sustaining pedagogy</em> (Paris &amp; Alim), which aims to sustain, not just bridge, students' cultural ways of being.</p></div>
     <div class="card"><span class="tag">Culturally responsive teaching</span><h3>Gay — asset-based practice</h3>
       <p class="kv">Geneva Gay frames CRT as using the cultural knowledge, prior experiences, and performance styles of diverse students to make learning more relevant and effective — validating, comprehensive, multidimensional, empowering, and emancipatory.</p></div>
     <div class="card"><span class="tag">Funds of knowledge</span><h3>Moll, Amanti, Neff &amp; González</h3>
@@ -424,14 +234,14 @@
 <section id="teachered"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Preparation &amp; development</span><h2>Teacher education &amp; professional development</h2>
     <p class="lead">Teaching is learned across a career, not conferred by a credential. Strong systems treat preparation and development as a continuum — clinically rich at entry, sustained and job-embedded thereafter.</p></div>
-  <div class="grid g2" style="margin-bottom:22px">
+  <div class="grid g2 lr-s2">
     <div class="card"><h3>Practice-based teacher education</h3>
       <p class="kv">Ball &amp; Forzani and Grossman argue for organizing preparation around the actual work of teaching — <b>representations</b> of practice, <b>decomposition</b> into learnable parts, and <b>approximations</b> (rehearsal) before and alongside classroom placement. Darling-Hammond's research points to the power of clinically rich, well-supervised preparation.</p></div>
     <div class="card"><h3>Standards &amp; the professional continuum</h3>
       <p class="kv">The <b>InTASC</b> Model Core Teaching Standards (CCSSO) describe what beginning teachers should know and do across the learner, content, instructional practice, and professional responsibility. National Board certification marks accomplished practice later in the career.</p></div>
   </div>
 
-  <h3 style="margin-bottom:12px">The teacher-development continuum</h3>
+  <h3 class="lr-s4">The teacher-development continuum</h3>
   <div class="steps">
     <div class="step"><div class="num"></div><div><h4>Preservice preparation</h4><p>Coursework in content, pedagogy, and PCK woven with clinical field experience — increasingly practice-based, with rehearsal of core practices before entering the classroom.</p></div></div>
     <div class="step"><div class="num"></div><div><h4>Student teaching / clinical residency</h4><p>An extended, supervised placement with a skilled cooperating teacher; the strongest models are yearlong residencies with a gradual release of responsibility.</p></div></div>
@@ -447,10 +257,10 @@
 <section id="math"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Disciplinary teaching</span><h2>Mathematics education</h2>
     <p class="lead">Mathematics teaching has moved decisively from procedures-first toward developing reasoning and sense-making. NCTM's <em>Principles to Actions</em> names the teaching practices that support it, and the Standards for Mathematical Practice describe the habits of a mathematical thinker.</p></div>
-  <div class="grid g2" style="margin-bottom:22px">
+  <div class="grid g2 lr-s2">
     <div class="card"><h3>Conceptual understanding &amp; procedural fluency</h3>
       <p class="kv">Not rivals but partners. <b>Conceptual understanding</b> is knowing why a procedure works; <b>procedural fluency</b> is carrying it out accurately, efficiently, and flexibly. Fluency built on understanding transfers; fluency without it is brittle.</p>
-      <p class="kv" style="margin-top:10px"><b>Productive struggle:</b> NCTM's call to let students grapple with genuine problems — struggle is where learning happens, provided the task is worthwhile and support is timely, not premature rescue.</p></div>
+      <p class="kv lr-s1"><b>Productive struggle:</b> NCTM's call to let students grapple with genuine problems — struggle is where learning happens, provided the task is worthwhile and support is timely, not premature rescue.</p></div>
     <div class="card"><h3>Number sense &amp; common misconceptions</h3>
       <p class="kv"><b>Number sense</b> — fluid, flexible reasoning about quantity and relationships — underpins later mathematics. It is built, not innate.</p>
       <ul>
@@ -460,9 +270,9 @@
         <li>Adding fractions by adding numerators and denominators</li>
       </ul></div>
   </div>
-  <h3 style="margin-bottom:12px">NCTM's eight effective teaching practices (<em>Principles to Actions</em>)</h3>
-  <div class="tbl-wrap"><table>
-    <tr><th>Practice</th><th>What it means</th></tr>
+  <h3 class="lr-s4">NCTM's eight effective teaching practices (<em>Principles to Actions</em>)</h3>
+  <div class="tbl-wrap"><table><tbody>
+    <tr><th scope="row">Practice</th><th scope="row">What it means</th></tr>
     <tr><td><b>Establish math goals</b></td><td>Focus learning on clear goals that situate today's work in a progression</td></tr>
     <tr><td><b>Implement tasks that promote reasoning</b></td><td>Use high-cognitive-demand tasks with multiple entry points and solution paths</td></tr>
     <tr><td><b>Use &amp; connect representations</b></td><td>Link visual, symbolic, contextual, verbal, and physical representations</td></tr>
@@ -471,7 +281,7 @@
     <tr><td><b>Build procedural fluency from conceptual understanding</b></td><td>Ground skills in meaning so they are flexible and durable</td></tr>
     <tr><td><b>Support productive struggle</b></td><td>Give students time to grapple; resist the urge to over-scaffold</td></tr>
     <tr><td><b>Elicit &amp; use evidence of thinking</b></td><td>Gather and act on evidence to adjust instruction</td></tr>
-  </table></div>
+  </tbody></table></div>
   <div class="callout"><b>The 8 Standards for Mathematical Practice</b> (CCSSM) describe the mathematician's habits: make sense of problems and persevere · reason abstractly and quantitatively · construct viable arguments and critique reasoning · model with mathematics · use tools strategically · attend to precision · look for and make use of structure · look for and express regularity in repeated reasoning.</div>
 </div></section>
 
@@ -479,7 +289,7 @@
 <section id="science"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Disciplinary teaching</span><h2>Science education</h2>
     <p class="lead">The <em>Framework for K–12 Science Education</em> (NRC) and the Next Generation Science Standards reconceived science learning as three-dimensional: students figure out phenomena by doing science, not by memorizing its products.</p></div>
-  <div class="grid g3" style="margin-bottom:22px">
+  <div class="grid g3 lr-s2">
     <div class="card hoverable"><span class="tag">Dimension 1</span><h3>Disciplinary core ideas</h3>
       <p class="kv">The most important, generative ideas within and across the physical, life, and earth/space sciences and engineering — the content worth deep, cumulative study.</p></div>
     <div class="card hoverable"><span class="tag">Dimension 2</span><h3>Science &amp; engineering practices</h3>
@@ -489,17 +299,17 @@
   </div>
   <div class="grid g2">
     <div class="card"><h3>The 5E instructional model (BSCS)</h3>
-      <div class="tbl-wrap"><table>
-        <tr><th>Phase</th><th>Purpose</th></tr>
+      <div class="tbl-wrap"><table><tbody>
+        <tr><th scope="row">Phase</th><th scope="row">Purpose</th></tr>
         <tr><td><b>Engage</b></td><td>Surface prior knowledge; spark curiosity with a phenomenon</td></tr>
         <tr><td><b>Explore</b></td><td>Hands-on investigation before formal explanation</td></tr>
         <tr><td><b>Explain</b></td><td>Introduce concepts and vocabulary, built on the exploration</td></tr>
         <tr><td><b>Elaborate</b></td><td>Apply and extend understanding to new contexts</td></tr>
         <tr><td><b>Evaluate</b></td><td>Assess understanding formatively and summatively</td></tr>
-      </table></div></div>
+      </tbody></table></div></div>
     <div class="card"><h3>Inquiry &amp; argumentation from evidence</h3>
       <p class="kv">Three-dimensional teaching anchors units in <b>phenomena</b> students work to explain. Rather than confirming known answers, students investigate, build and revise <b>models</b>, and construct <b>arguments from evidence</b>, critiquing one another's claims and reasoning.</p>
-      <p class="kv" style="margin-top:10px">The shift is from science as a body of facts to be received, to science as a set of practices for making sense of the world — with the teacher orchestrating the sense-making.</p></div>
+      <p class="kv lr-s1">The shift is from science as a body of facts to be received, to science as a set of practices for making sense of the world — with the teacher orchestrating the sense-making.</p></div>
   </div>
 </div></section>
 
@@ -507,7 +317,7 @@
 <section id="curriculum"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Design at scale</span><h2>Curriculum development &amp; design</h2>
     <p class="lead">Curriculum is more than a list of topics. It exists in several forms at once, and designing it well means aligning intended goals, enacted teaching, and assessed outcomes — coherently, across grades and courses.</p></div>
-  <div class="grid g3" style="margin-bottom:22px">
+  <div class="grid g3 lr-s2">
     <div class="card hoverable"><span class="tag">Intended</span><h3>The written / official curriculum</h3>
       <p class="kv">What standards, frameworks, and adopted materials say should be taught — the formal plan.</p></div>
     <div class="card hoverable"><span class="tag">Enacted</span><h3>The taught curriculum</h3>
@@ -532,15 +342,15 @@
   <div class="sec-head"><span class="eyebrow">Interactive · self-check</span><h2>Which learning theory fits this activity?</h2>
     <p class="lead">Read each classroom activity and pick the learning theory it most directly reflects. Immediate feedback follows each choice — the point is to hear the theory behind the practice.</p></div>
   <div class="selector">
-    <h3 style="margin-bottom:6px">Match the activity to its theory</h3>
-    <p class="kv" style="margin-bottom:16px">Five items. Your running score appears below.</p>
+    <h3 class="lr-s5">Match the activity to its theory</h3>
+    <p class="kv lr-s6">Five items. Your running score appears below.</p>
     <div id="tqWrap"></div>
     <div class="result" id="tqResult">
       <div class="big" id="tqScore"></div>
       <p id="tqMsg"></p>
     </div>
   </div>
-  <div class="callout" style="margin-top:20px"><b>Why this matters.</b> The same behavior — a group task, a drill, a discussion — can serve different learning goals. Naming the theory clarifies what the activity is <em>for</em>, and whether its design actually serves that purpose.</div>
+  <div class="callout lr-s7"><b>Why this matters.</b> The same behavior — a group task, a drill, a discussion — can serve different learning goals. Naming the theory clarifies what the activity is <em>for</em>, and whether its design actually serves that purpose.</div>
 </div></section>
 
 <!-- 9. ASSESSMENT -->
@@ -555,39 +365,39 @@
     <div class="card hoverable"><span class="tag">Authentic</span><h3>Real tasks &amp; standards-based grading</h3>
       <p class="kv"><b>Authentic assessment</b> asks students to apply learning to meaningful, real-world tasks and performances. <b>Standards-based grading</b> reports achievement against specific learning targets rather than folding in behavior and compliance.</p></div>
   </div>
-  <div class="callout"><b>Aligned by design.</b> Assessment, instruction, and standards should form a loop — backward design starts from the evidence of understanding, then builds the teaching to reach it. For assessment in online and blended settings, see the companion resource on <a href="../online-course-design/">online course design</a>.</div>
+  <div class="callout"><b>Aligned by design.</b> Assessment, instruction, and standards should form a loop — backward design starts from the evidence of understanding, then builds the teaching to reach it. For assessment in online and blended settings, see the companion resource on <a href="https://freddricklogan.github.io/online-course-design/">online course design</a>.</div>
 </div></section>
 
-<!-- 10. GLOSSARY & REFERENCES -->
+<!-- 10. GLOSSARY &amp; REFERENCES -->
 <section id="glossary"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Reference</span><h2>Core vocabulary</h2></div>
   <div class="grid g2">
-    <div class="card"><ul style="list-style:none;padding:0;margin:0">
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Pedagogical content knowledge (PCK)</b> — the fusion of content and pedagogy unique to teaching (Shulman).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Zone of Proximal Development</b> — the gap between what a learner can do alone and with support (Vygotsky).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Scaffolding</b> — temporary support that is gradually withdrawn as competence grows.</li>
-      <li style="padding:9px 0"><b style="color:var(--ink)">High-leverage practice</b> — a fundamental, frequently-used teaching move with outsized effect on learning.</li>
+    <div class="card"><ul class="lr-s8">
+      <li class="lr-s9"><b class="lr-s10">Pedagogical content knowledge (PCK)</b> — the fusion of content and pedagogy unique to teaching (Shulman).</li>
+      <li class="lr-s9"><b class="lr-s10">Zone of Proximal Development</b> — the gap between what a learner can do alone and with support (Vygotsky).</li>
+      <li class="lr-s9"><b class="lr-s10">Scaffolding</b> — temporary support that is gradually withdrawn as competence grows.</li>
+      <li class="lr-s11"><b class="lr-s10">High-leverage practice</b> — a fundamental, frequently-used teaching move with outsized effect on learning.</li>
     </ul></div>
-    <div class="card"><ul style="list-style:none;padding:0;margin:0">
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Formative assessment</b> — evidence gathered during learning to adjust teaching (assessment <em>for</em> learning).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Funds of knowledge</b> — the knowledge and skills embedded in students' households and communities (Moll et al.).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Productive struggle</b> — grappling with worthwhile problems as the site of learning (NCTM).</li>
-      <li style="padding:9px 0"><b style="color:var(--ink)">Backward design</b> — planning from desired results to evidence to activities (Wiggins &amp; McTighe).</li>
+    <div class="card"><ul class="lr-s8">
+      <li class="lr-s9"><b class="lr-s10">Formative assessment</b> — evidence gathered during learning to adjust teaching (assessment <em>for</em> learning).</li>
+      <li class="lr-s9"><b class="lr-s10">Funds of knowledge</b> — the knowledge and skills embedded in students' households and communities (Moll et al.).</li>
+      <li class="lr-s9"><b class="lr-s10">Productive struggle</b> — grappling with worthwhile problems as the site of learning (NCTM).</li>
+      <li class="lr-s11"><b class="lr-s10">Backward design</b> — planning from desired results to evidence to activities (Wiggins &amp; McTighe).</li>
     </ul></div>
-    <div class="card"><ul style="list-style:none;padding:0;margin:0">
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Three-dimensional learning</b> — core ideas, science &amp; engineering practices, and crosscutting concepts (NGSS/NRC).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">5E model</b> — Engage, Explore, Explain, Elaborate, Evaluate (BSCS).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Procedural fluency</b> — accurate, efficient, flexible execution of procedures, built on understanding.</li>
-      <li style="padding:9px 0"><b style="color:var(--ink)">Curriculum coherence</b> — ideas that build sensibly across grades without gaps or redundancy.</li>
+    <div class="card"><ul class="lr-s8">
+      <li class="lr-s9"><b class="lr-s10">Three-dimensional learning</b> — core ideas, science &amp; engineering practices, and crosscutting concepts (NGSS/NRC).</li>
+      <li class="lr-s9"><b class="lr-s10">5E model</b> — Engage, Explore, Explain, Elaborate, Evaluate (BSCS).</li>
+      <li class="lr-s9"><b class="lr-s10">Procedural fluency</b> — accurate, efficient, flexible execution of procedures, built on understanding.</li>
+      <li class="lr-s11"><b class="lr-s10">Curriculum coherence</b> — ideas that build sensibly across grades without gaps or redundancy.</li>
     </ul></div>
-    <div class="card"><ul style="list-style:none;padding:0;margin:0">
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Culturally relevant pedagogy</b> — academic success, cultural competence, sociopolitical consciousness (Ladson-Billings).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Universal Design for Learning</b> — multiple means of engagement, representation, and action (CAST).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Practice-based teacher education</b> — preparation organized around representations, decomposition, and approximations of practice (Grossman; Ball &amp; Forzani).</li>
-      <li style="padding:9px 0"><b style="color:var(--ink)">InTASC standards</b> — model core teaching standards for what beginning teachers should know and do (CCSSO).</li>
+    <div class="card"><ul class="lr-s8">
+      <li class="lr-s9"><b class="lr-s10">Culturally relevant pedagogy</b> — academic success, cultural competence, sociopolitical consciousness (Ladson-Billings).</li>
+      <li class="lr-s9"><b class="lr-s10">Universal Design for Learning</b> — multiple means of engagement, representation, and action (CAST).</li>
+      <li class="lr-s9"><b class="lr-s10">Practice-based teacher education</b> — preparation organized around representations, decomposition, and approximations of practice (Grossman; Ball &amp; Forzani).</li>
+      <li class="lr-s11"><b class="lr-s10">InTASC standards</b> — model core teaching standards for what beginning teachers should know and do (CCSSO).</li>
     </ul></div>
   </div>
-  <div class="card" style="margin-top:18px"><h3>Foundational scholars &amp; further reading</h3>
+  <div class="card lr-s12"><h3>Foundational scholars &amp; further reading</h3>
     <div class="scholars">
       <span class="chip">Shulman — <em>Those Who Understand: Knowledge Growth in Teaching</em> (PCK)</span>
       <span class="chip">Ladson-Billings — <em>The Dreamkeepers</em> (culturally relevant pedagogy)</span>
@@ -606,133 +416,20 @@
       <span class="chip">Tomlinson — <em>The Differentiated Classroom</em></span>
     </div></div>
 </div></section>
+</main>
 
 <footer><div class="wrap">
   <div class="foot-name">Freddrick Logan</div>
   <div class="foot-title">Teaching, Teacher Education &amp; Curriculum</div>
   <nav class="foot-links" aria-label="Footer">
     <a href="https://fredlogan.phd">fredlogan.phd</a> &middot;
-    <a href="../resources/">Resource hub</a> &middot;
+    <a href="https://freddricklogan.github.io/resources/">Resource hub</a> &middot;
     <a href="https://github.com/Freddricklogan">GitHub</a> &middot;
     <a href="https://www.linkedin.com/in/freddricklogan/">LinkedIn</a>
   </nav>
   <div class="copyright">&copy; 2026 Freddrick Logan &mdash; Technologist &amp; Education. All rights reserved.</div>
 </div></footer>
 
-<script>
-// ---- Tabs: high-leverage practice explorer ----
-document.querySelectorAll('#hlptabs .tab').forEach(t=>{
-  t.onclick=()=>{
-    document.querySelectorAll('#hlptabs .tab').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('#hlp .panel').forEach(p=>p.classList.remove('active'));
-    t.classList.add('active');
-    document.getElementById(t.dataset.p).classList.add('active');
-  };
-});
-
-// ---- Which learning theory fits this activity? (scored self-check) ----
-const THEORY={
-  behaviorism:'Behaviorism',
-  cognitivism:'Cognitivism',
-  constructivism:'Constructivism',
-  social:'Social constructivism',
-  connectivism:'Connectivism'
-};
-const TQ=[
-  {q:'Students earn points and immediate feedback on a fluency drill of math facts until each set is mastered.',a:'behaviorism',
-   why:'Reinforcement, practice, and immediate feedback to build automaticity is the behaviorist signature.'},
-  {q:'Before a new procedure, the teacher presents a worked example and deliberately limits new information to avoid overloading working memory.',a:'cognitivism',
-   why:'Managing cognitive load and using worked examples is cognitivist information-processing.'},
-  {q:'Students design and run their own experiment, then revise their prior beliefs when the results surprise them.',a:'constructivism',
-   why:'Learners actively constructing and revising their own understanding through experience is constructivism.'},
-  {q:'A teacher scaffolds a task just beyond what students can do alone, having them work in pairs with prompts, then fades the support.',a:'social',
-   why:'Working in the Zone of Proximal Development with scaffolding and peer support is social constructivism (Vygotsky).'},
-  {q:'Students curate sources across blogs, experts, and online communities, learning to evaluate and connect a distributed network of information.',a:'connectivism',
-   why:'Learning as navigating and cultivating networks of people and tools is connectivism.'}
-];
-const tqState={};
-(function buildTQ(){
-  const wrap=document.getElementById('tqWrap');
-  if(!wrap) return;
-  const keys=['behaviorism','cognitivism','constructivism','social','connectivism'];
-  TQ.forEach((item,i)=>{
-    const q=document.createElement('div'); q.className='q';
-    const p=document.createElement('p'); p.textContent=(i+1)+' · '+item.q; q.appendChild(p);
-    const opts=document.createElement('div'); opts.className='opts';
-    keys.forEach(key=>{
-      const b=document.createElement('button'); b.className='opt'; b.textContent=THEORY[key];
-      b.onclick=()=>{
-        if(tqState[i]!=null) return;
-        tqState[i]=key;
-        opts.querySelectorAll('.opt').forEach(x=>{x.style.pointerEvents='none';});
-        if(key===item.a){ b.classList.add('sel'); b.style.borderColor='var(--good)'; b.style.background='rgba(74,222,128,.16)'; }
-        else{
-          b.style.borderColor='var(--bad)'; b.style.background='rgba(248,113,113,.16)';
-          opts.querySelectorAll('.opt').forEach(x=>{ if(x.textContent===THEORY[item.a]){ x.style.borderColor='var(--good)'; x.style.background='rgba(74,222,128,.16)'; } });
-        }
-        scoreTQ();
-      };
-      opts.appendChild(b);
-    });
-    q.appendChild(opts);
-    const fb=document.createElement('p'); fb.className='kv'; fb.style.marginTop='8px'; fb.style.color='var(--dim)';
-    fb.id='tqWhy'+i; q.appendChild(fb);
-    wrap.appendChild(q);
-  });
-})();
-function scoreTQ(){
-  const answered=Object.keys(tqState).length;
-  let correct=0;
-  for(const i in tqState){
-    if(tqState[i]===TQ[i].a) correct++;
-    const w=document.getElementById('tqWhy'+i);
-    if(w) w.textContent=(tqState[i]===TQ[i].a?'Correct — ':'Not quite — ')+TQ[i].why;
-  }
-  document.getElementById('tqResult').classList.add('show');
-  document.getElementById('tqScore').textContent=correct+' / '+TQ.length+' correct';
-  let msg;
-  if(answered<TQ.length) msg='Keep going — '+(TQ.length-answered)+' to go.';
-  else if(correct===TQ.length) msg='Perfect — you can hear the theory behind the practice. That fluency is what turns activities into deliberate design.';
-  else msg='Review the learning-theory cards above: attend to whether the activity is about reinforcement, memory, personal construction, social scaffolding, or networks.';
-  document.getElementById('tqMsg').textContent=msg;
-}
-</script>
-<script>
-(function(){
-  if(document.querySelector('.sec-head.sect-toggle')) return;
-  var firstCollapsible=null;
-  [].slice.call(document.querySelectorAll('section')).forEach(function(sec){
-    var wrap=sec.querySelector('.wrap'); if(!wrap) return;
-    var head=wrap.querySelector('.sec-head'); if(!head) return;
-    if(wrap.querySelector('.memo-head')||wrap.querySelector('.exec-summary')) return;
-    var body=document.createElement('div'); body.className='sect-body';
-    var n=head.nextSibling;
-    while(n){ var nx=n.nextSibling; body.appendChild(n); n=nx; }
-    wrap.appendChild(body);
-    head.classList.add('sect-toggle');
-    head.setAttribute('role','button'); head.setAttribute('tabindex','0'); head.setAttribute('aria-expanded','false');
-    sec.classList.add('collapsed');
-    if(!firstCollapsible) firstCollapsible=sec;
-    function set(open){ sec.classList[open?'remove':'add']('collapsed'); head.setAttribute('aria-expanded',open?'true':'false'); }
-    head.addEventListener('click',function(){ set(sec.classList.contains('collapsed')); });
-    head.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); set(sec.classList.contains('collapsed')); } });
-  });
-  function openHash(){ var id=decodeURIComponent((location.hash||'').slice(1)); if(!id) return; var el=document.getElementById(id); if(!el) return; var s=el.closest?el.closest('section'):null; if(s&&s.classList.contains('collapsed')){ s.classList.remove('collapsed'); var h=s.querySelector('.sec-head.sect-toggle'); if(h)h.setAttribute('aria-expanded','true'); } setTimeout(function(){ try{el.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){el.scrollIntoView();} },40); }
-  window.addEventListener('hashchange',openHash);
-  if(firstCollapsible){
-    var bar=document.createElement('div'); bar.className='expand-bar';
-    var btn=document.createElement('button'); btn.type='button'; btn.textContent='Expand all sections'; btn.setAttribute('aria-expanded','false');
-    var expanded=false;
-    btn.addEventListener('click',function(){
-      expanded=!expanded;
-      document.querySelectorAll('section').forEach(function(s){ var h=s.querySelector('.sec-head.sect-toggle'); if(!h) return; s.classList[expanded?'remove':'add']('collapsed'); h.setAttribute('aria-expanded',expanded?'true':'false'); });
-      btn.textContent=expanded?'Collapse all sections':'Expand all sections'; btn.setAttribute('aria-expanded',expanded?'true':'false');
-    });
-    bar.appendChild(btn);
-    firstCollapsible.parentNode.insertBefore(bar, firstCollapsible);
-  }
-  openHash();
-})();
-</script>
+<script type="module" src="src/main.js"></script>
 </body>
 </html>
