@@ -1,0 +1,54 @@
+{
+  "title": "Teaching, Teacher Education & Curriculum",
+  "subtitle": "a graduate-level guide to the craft of teaching, how teachers are made, and how curriculum is designed, with a high-leverage practice explorer and a scored theory self-check",
+  "problem": "Teacher candidates, instructional coaches and curriculum leaders talk fluently about constructivism and rigour and then run a classroom by habit: a drill that is really behaviourist, a discussion that is really coverage, a curriculum map that lists topics without evidence of learning. The theories are known; the connection from a theory to a specific move, and from a move to a design decision, is rarely made explicit.",
+  "solution": "An eleven-section resource that grounds teaching in five learning traditions, names the high-leverage practices novices can rehearse, sets out culturally relevant and inclusive teaching, argues for practice-based teacher education and job-embedded development, goes discipline-deep into mathematics and science education, treats curriculum as intended, enacted, hidden and assessed with backward design at scale, and separates assessment for learning from assessment of it — with a practice explorer and a scored self-check that asks the reader to name the theory behind five classroom activities.",
+  "pedagogy": "name the theory behind the move: the self-check gives immediate feedback on why an activity reflects behaviourism, cognitivism, constructivism, social constructivism or connectivism; the practice explorer shows what each move looks like in a classroom, not only what it is called; discipline sections use the field's own frameworks (NCTM, NGSS).",
+  "section_titles": [
+    "theories of learning",
+    "effective teaching",
+    "high-leverage practice explorer",
+    "culturally responsive teaching",
+    "teacher education and development",
+    "mathematics education",
+    "science education",
+    "curriculum design",
+    "theory self-check",
+    "assessment",
+    "glossary"
+  ],
+  "widgets": [
+    {
+      "name": "High-leverage practice explorer",
+      "what": "Five tabs — eliciting student thinking, explaining and modelling, leading discussions, checking understanding, culturally responsive teaching — each with what it is, why it matters and what it looks like"
+    },
+    {
+      "name": "Which learning theory fits this activity?",
+      "what": "Five classroom activities to match to a learning tradition, with immediate feedback, the reasoning, and a running score"
+    }
+  ],
+  "quiz_topics": [
+    "Shulman's pedagogical content knowledge",
+    "scaffolding in the Zone of Proximal Development",
+    "Ladson-Billings' three pillars",
+    "conceptual understanding and procedural fluency",
+    "the order of backward design"
+  ],
+  "tour": [
+    "the first section opens and the count rises.",
+    "PCK, scaffolding, culturally relevant pedagogy, fluency and backward design"
+  ],
+  "repo": "teaching-and-teacher-education",
+  "tests": 7,
+  "cov_all": 79.84,
+  "cov_kit": 78.75,
+  "vars": 26,
+  "inline_styles": 63,
+  "style_classes": 12,
+  "buttons": 5,
+  "tables": 2,
+  "main_note": "wrapped the content in a `<main>` landmark",
+  "sections": 11,
+  "words": 3022,
+  "reading_min": 14
+}
