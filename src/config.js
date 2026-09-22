@@ -3,6 +3,7 @@ export const config = {
   title: 'Teaching, Teacher Education & Curriculum',
   tagline: 'A graduate-level guide to the craft of teaching, how teachers are prepared and developed, and how curriculum is designed: learning theories, high-leverage practices, culturally responsive teaching, practice-based teacher education, mathematics and science education, curriculum design and assessment, with a practice explorer and a scored theory self-check.',
   repo: 'https://github.com/Freddricklogan/teaching-and-teacher-education',
+  theme: 'plum',
   pagesUrl: 'https://freddricklogan.github.io/teaching-and-teacher-education/',
   quizTitle: 'Five questions on teaching and curriculum',
   quiz: [
