@@ -289,36 +289,39 @@ function buildTour(steps, tourBtn) {
         }
       }
     }
-    position(step);
+    await position(step);
   }
-  function position(step) {
+  async function position(step) {
     const target = step.selector ? document.querySelector(step.selector) : null;
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     if (!target) {
       spot.style.display = "none";
-      card.style.left = `${Math.max(16, (vw - card.offsetWidth) / 2)}px`;
-      card.style.top = `${Math.max(16, (vh - card.offsetHeight) / 2)}px`;
+      const h = Math.min(card.offsetHeight, vh - 24);
+      card.style.left = `${Math.max(12, (vw - card.offsetWidth) / 2)}px`;
+      card.style.top = `${Math.max(12, (vh - h) / 2)}px`;
       return;
     }
     target.scrollIntoView({
       block: "center",
       behavior: prefersReducedMotion() ? "auto" : "smooth"
     });
+    await scrollSettled();
     const r = target.getBoundingClientRect();
     spot.style.display = "";
     spot.style.left = `${Math.max(4, r.left - 6)}px`;
     spot.style.top = `${Math.max(4, r.top - 6)}px`;
     spot.style.width = `${r.width + 12}px`;
     spot.style.height = `${r.height + 12}px`;
-    const cw = card.offsetWidth || 360;
-    const ch = card.offsetHeight || 220;
-    let top = r.bottom + 16;
-    if (top + ch > vh - 12) top = Math.max(12, r.top - ch - 16);
-    let left = r.left;
-    if (left + cw > vw - 12) left = Math.max(12, vw - cw - 12);
-    card.style.left = `${Math.max(12, left)}px`;
-    card.style.top = `${Math.max(12, top)}px`;
+    const { left, top } = placeTourCard({
+      rect: r,
+      vw,
+      vh,
+      cw: card.offsetWidth || 360,
+      ch: card.offsetHeight || 220
+    });
+    card.style.left = `${left}px`;
+    card.style.top = `${top}px`;
   }
   function onKeydown(event) {
     if (!open) return;
@@ -659,6 +662,7 @@ function mountLearningResource(config) {
     h("p", { class: "lead" }, [config.quizIntro ?? "One attempt per question. Your answers stay in this browser; nothing is sent anywhere."])
   ]);
   const form = h("form", { class: "lr-quiz__form", novalidate: "" });
+  form.addEventListener("submit", (event) => event.preventDefault());
   const scoreEl = h("p", { class: "lr-quiz__score", "aria-live": "polite" });
   const logDetails = h("details", { class: "lr-log" });
   const logSummary = h("summary", {}, ["xAPI statements recorded in this browser"]);
@@ -900,6 +904,37 @@ function initCollapsible(root = document) {
     }
   };
 }
+/**
+ * Where the tour card goes: below the target, else above it, and always inside the viewport.
+ * A card taller than the viewport is capped by CSS (max-height + scroll) and pinned to the top
+ * margin, so its Back / Next buttons are always reachable.
+ * @param {{ rect: {top:number,bottom:number,left:number}, vw:number, vh:number, cw:number, ch:number }} p
+ * @returns {{ left: number, top: number }}
+ */
+function placeTourCard({ rect, vw, vh, cw, ch, margin = 12, gap = 16 }) {
+  const h = Math.min(ch, vh - 2 * margin);
+  let top = rect.bottom + gap;
+  if (top + h > vh - margin) top = rect.top - h - gap;
+  top = Math.min(Math.max(margin, top), vh - h - margin);
+  let left = rect.left;
+  if (left + cw > vw - margin) left = vw - cw - margin;
+  return { left: Math.max(margin, left), top: Math.max(margin, top) };
+}
+/** Resolve once scrolling has stopped (two equal readings 50 ms apart, at most 900 ms). */
+function scrollSettled() {
+  return new Promise((resolve) => {
+    let last = -1;
+    let waited = 0;
+    const tick = () => {
+      const y = window.scrollY;
+      if (y === last || waited >= 900) return resolve();
+      last = y;
+      waited += 50;
+      setTimeout(tick, 50);
+    };
+    setTimeout(tick, 50);
+  });
+}
 export {
   ACTIVITY_TYPES,
   DEFAULT_WPM,
@@ -915,6 +950,7 @@ export {
   isStatement,
   memoryStore,
   mountLearningResource,
+  placeTourCard,
   readJson,
   readingMinutes,
   safeLocalStore,

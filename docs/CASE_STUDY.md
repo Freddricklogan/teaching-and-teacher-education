@@ -32,7 +32,7 @@ Worth knowing: reading time is words at 230 per minute and includes the self-che
 
 ## 6. Evidence
 
-Measured locally with the commands CI runs: 7 tests passing across two files — quiz validity, page invariants, and the vendored kit mounted on this page; coverage 79.84% of all files with `src/config.js` at 100% and the vendored kit at 78.75% from this page's smoke test; ESLint and html-validate clean. The conversion audit records 63 inline style attributes replaced by 12 classes, 26 custom properties namespaced, 5 buttons typed, 2 tables given a body and a `<main>` landmark added. Headless Chrome on the converted page: zero console errors; the fifth practice tab activates culturally responsive teaching, two self-check answers score 1 of 5 with the running message updated; Expand all opens 11 of 11 sections and the KPI strip follows; no horizontal scroll at 1280 or 400 pixels.
+Measured locally with the commands CI runs: 14 tests passing across two files — quiz validity, page invariants, and the vendored kit mounted on this page; coverage 79.55% of all files with `src/config.js` at 100% and the vendored kit at 78.54% from this page's smoke test; ESLint and html-validate clean. The conversion audit records 63 inline style attributes replaced by 12 classes, 26 custom properties namespaced, 5 buttons typed, 2 tables given a body and a `<main>` landmark added. Headless Chrome on the converted page: zero console errors; the fifth practice tab activates culturally responsive teaching, two self-check answers score 1 of 5 with the running message updated; Expand all opens 11 of 11 sections and the KPI strip follows; no horizontal scroll at 1280 or 400 pixels.
 
 ## 7. What it would take to run this in production
 
