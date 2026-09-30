@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { config } from '../src/config.js';
-import { initCollapsible, mountLearningResource, readingMinutes, scoreQuiz, wordCount } from '../src/lr-kit.js';
+import { initCollapsible, mountLearningResource, placeTourCard, readingMinutes, scoreQuiz, wordCount } from '../src/lr-kit.js';
 
 const html = readFileSync(resolve(process.cwd(), 'index.html'), 'utf8');
 const bodyHtml = html.slice(html.indexOf('<body>') + 6, html.lastIndexOf('</body>'));
@@ -52,5 +52,42 @@ describe('kit applied to this page', () => {
     const completed = api.statements.all().find((s) => s.verb.display['en-US'] === 'completed');
     expect(completed.result.score).toEqual({ scaled: 1, raw: config.quiz.length, max: config.quiz.length });
     expect(completed.object.id).toBe(`${config.pagesUrl}#quiz`);
+  });
+});
+
+describe('tour card placement', () => {
+  const vw = 1280;
+  const vh = 900;
+  it('sits below a target with room beneath it', () => {
+    expect(placeTourCard({ rect: { top: 100, bottom: 200, left: 40 }, vw, vh, cw: 420, ch: 300 })).toEqual({ left: 40, top: 216 });
+  });
+  it('moves above a target near the bottom of the viewport', () => {
+    const { top } = placeTourCard({ rect: { top: 700, bottom: 780, left: 40 }, vw, vh, cw: 420, ch: 300 });
+    expect(top).toBe(700 - 300 - 16);
+  });
+  it('keeps the whole card on screen when neither side has room', () => {
+    const { top } = placeTourCard({ rect: { top: 200, bottom: 760, left: 40 }, vw, vh, cw: 420, ch: 500 });
+    expect(top).toBeGreaterThanOrEqual(12);
+    expect(top + 500).toBeLessThanOrEqual(vh - 12);
+  });
+  it('pins a card taller than the viewport to the top margin (CSS caps its height)', () => {
+    expect(placeTourCard({ rect: { top: 50, bottom: 300, left: 40 }, vw: 400, vh, cw: 376, ch: 1400 }).top).toBe(12);
+  });
+  it('uses a measurement taken far below the fold without leaving the viewport', () => {
+    const { top } = placeTourCard({ rect: { top: 6600, bottom: 6640, left: 40 }, vw: 400, vh, cw: 376, ch: 400 });
+    expect(top + 400).toBeLessThanOrEqual(vh - 12);
+  });
+  it('clamps the left edge on a narrow screen', () => {
+    expect(placeTourCard({ rect: { top: 100, bottom: 200, left: 300 }, vw: 400, vh, cw: 376, ch: 200 }).left).toBe(12);
+  });
+});
+
+describe('quiz form', () => {
+  it('never submits (the page CSP is form-action none)', () => {
+    const form = document.querySelector('.lr-quiz__form');
+    expect(form).not.toBeNull();
+    const ev = new Event('submit', { cancelable: true, bubbles: true });
+    form.dispatchEvent(ev);
+    expect(ev.defaultPrevented).toBe(true);
   });
 });
